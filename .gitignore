@@ -1,0 +1,90 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Xcode — keep FullScreenWeb.xcodeproj/ in git (needed to open & build).
+# Only ignore user-specific bits inside it (local paths, UI state, personal schemes):
+**/xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.hmap
+# Do NOT ignore project.pbxproj or project.xcworkspace/contents.xcworkspacedata.
+
+# Xcode — build products & local DerivedData
+build/
+DerivedData/
+.derivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+.build/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+Packages/
+Package.resolved
+
+# CocoaPods / Carthage (if added later)
+Pods/
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/readme.md
+
+# --- Secrets & credentials (never commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.p8
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+AuthKey_*.p8
+GoogleService-Info.plist
+Secrets.plist
+Secrets.swift
+Secrets.xcconfig
+Local.xcconfig
+*.local.xcconfig
+credentials.json
+id_rsa
+id_ed25519
+*.key
+!*.pbxproj
+
+# IDE / editor
+.idea/
+*.swp
+*~
+.vscode/
+!.vscode/extensions.json
+
+# Cursor / agent local state
+.cursor/
+.derivedData/
