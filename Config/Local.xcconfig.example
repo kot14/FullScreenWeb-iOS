@@ -1,0 +1,5 @@
+// Local-only signing. Copy to Local.xcconfig and set your Apple Team ID.
+// Find it in Xcode → Settings → Accounts → [your team] → Team ID
+// or: https://developer.apple.com/account → Membership details
+
+DEVELOPMENT_TEAM = YOUR_TEAM_ID

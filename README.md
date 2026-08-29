@@ -36,13 +36,22 @@ Or double-click `FullScreenWeb.xcodeproj` in Finder.
 
 ### 3. Set your signing team
 
-1. In the Project Navigator, select the **FullScreenWeb** project
-2. Select the **FullScreenWeb** target → **Signing & Capabilities**
-3. Enable **Automatically manage signing**
-4. Choose your **Team** (personal team is fine)
-5. If Xcode complains about the bundle ID (`YarDev.FullScreenWeb`), change **Bundle Identifier** to something unique, e.g. `com.yourname.FullScreenWeb`
+Team ID is **not** stored in the Xcode project. Copy the local config and put your Apple Team ID there:
 
-Repeat the same Team for the **FullScreenWebTests** / **FullScreenWebUITests** targets only if you plan to run tests.
+```bash
+cp Config/Local.xcconfig.example Config/Local.xcconfig
+```
+
+Edit `Config/Local.xcconfig` and replace `YOUR_TEAM_ID` with your Team ID (Xcode → Settings → Accounts → your team, or [developer.apple.com/account](https://developer.apple.com/account)).
+
+Then in Xcode:
+
+1. Select the **FullScreenWeb** target → **Signing & Capabilities**
+2. Enable **Automatically manage signing**
+3. Confirm your Team appears (from `Local.xcconfig`)
+4. If Xcode complains about the bundle ID (`YarDev.FullScreenWeb`), change **Bundle Identifier** to something unique, e.g. `com.yourname.FullScreenWeb`
+
+`Config/Local.xcconfig` is gitignored — do not commit it.
 
 ### 4. Connect the device
 
@@ -65,7 +74,7 @@ The app should install and launch on the device.
 1. Connect a monitor/TV (cable adapter or AirPlay / Screen Mirroring)
 2. On the phone, the status should show the monitor as connected
 3. Open a shortcut — the page appears fullscreen on the external display
-4. Enable mouse capture in settings (when available) to move a pointer on the external screen from the phone
+4. Move a finger / mouse on the phone — pointer capture starts automatically when an external display is connected
 
 ## Project structure
 
@@ -73,6 +82,8 @@ The app should install and launch on the device.
 |------|------|
 | `FullScreenWeb/` | App source (SwiftUI phone UI + UIKit external display / WebKit) |
 | `FullScreenWeb.xcodeproj` | Xcode project |
+| `Config/Shared.xcconfig` | Shared build settings (optionally includes `Local.xcconfig`) |
+| `Config/Local.xcconfig.example` | Template for your Team ID — copy to `Local.xcconfig` |
 | `FullScreenWebTests/` | Unit tests |
 | `FullScreenWebUITests/` | UI tests |
 
@@ -82,7 +93,7 @@ No Swift Package Manager dependencies — open the `.xcodeproj` and build.
 
 | Issue | What to try |
 |-------|-------------|
-| Signing / provisioning errors | Select your Team; change Bundle ID to a unique value |
+| Signing / provisioning errors | Create `Config/Local.xcconfig` from the example; set a valid `DEVELOPMENT_TEAM`; change Bundle ID if needed |
 | “Untrusted Developer” | Trust the certificate under **Settings → VPN & Device Management** |
 | Device not listed | Unlock phone, trust the computer, use a data cable; enable Developer Mode on iOS 16+ if asked |
 | Deployment target too high | Update the device to iOS 18.5+, or lower **iOS Deployment Target** in the target’s **General** tab (may need code changes) |
@@ -90,4 +101,4 @@ No Swift Package Manager dependencies — open the `.xcodeproj` and build.
 
 ## License
 
-Personal / pet project — adjust this section if you publish or share the repo.
+Licensed under the [GNU General Public License v3.0](LICENSE).

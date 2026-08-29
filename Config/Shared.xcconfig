@@ -1,0 +1,3 @@
+// Shared build settings. Local secrets (Team ID) live in Local.xcconfig (gitignored).
+// `#include?` = optional — project still opens if Local.xcconfig is missing.
+#include? "Local.xcconfig"
